@@ -9,7 +9,7 @@ import java.lang.invoke.TypeDescriptor
 data class Note(
 
     val title: String,
-    val descriptor: String,
+    val description: String,
     val dateAdded: Long,
 
     @PrimaryKey(autoGenerate = true)
