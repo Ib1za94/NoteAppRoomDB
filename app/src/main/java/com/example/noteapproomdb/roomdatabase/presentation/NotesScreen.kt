@@ -55,7 +55,7 @@ fun NotesScreen (
                 Text(text = stringResource(id = R.string.app_name),
                     modifier = Modifier.weight(1f),
                     fontSize = 17.sp,
-                    FontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onPrimary
                 )
                 

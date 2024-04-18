@@ -22,6 +22,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.example.noteapproomdb.roomdatabase.data.NotesDataBase
+import com.example.noteapproomdb.roomdatabase.presentation.AddNoteScreen
 import com.example.noteapproomdb.roomdatabase.presentation.NotesScreen
 import com.example.noteapproomdb.roomdatabase.presentation.NotesViewModel
 import com.example.noteapproomdb.roomdatabase.theme.NoteAppRoomDBTheme
@@ -70,8 +71,8 @@ class MainActivity : ComponentActivity() {
                         composable("AddNoteScreen") {
                             AddNoteScreen(
                                 state = state,
-                                NavController = NavController,
-                                onEvent = viewModel::onEvent
+                                navController = NavController,
+                                onEvents = viewModel::onEvent
                             )
                         }
                     }
