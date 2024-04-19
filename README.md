@@ -20,5 +20,5 @@
   <li>UI Components Libraries: Jetpack Compose</li>
   <li>Asynchronous operations: Coroutines and Flow</li>
   <li>Architectural pattern: MVVM (Model-View-ViewModel)</li>
-  <li>Clean Architecture: </li>
+  <li>Clean Architecture </li>
 </ul>
