@@ -1,4 +1,4 @@
-# Android App for skill demonstration 📱
+# Notes Android App 📝📱
 
 <details><summary><b>App screenshots:</b></summary>
   <img src="https://github.com/Ib1za94/NoteAppRoomDB/assets/132717217/27d71b7f-f633-450c-9160-43a90cc3bf99">
