@@ -5,7 +5,7 @@
   <img src="https://github.com/Ib1za94/NoteAppRoomDB/assets/132717217/e50b33e0-65a5-45ab-aee3-aeee68daf370"></details>
 
 ### About Project
-<em>Weather App with few features for skill demonstration.</em>
+<em>Note application for Android with Clean architecture, MVVM, Jetpack Compose, Room database, asynchronous operations with coroutines and Flow</em>
 
 ### Installation instructions
 <em>Just download APK-file if you have phone with Android operating system.</em>
