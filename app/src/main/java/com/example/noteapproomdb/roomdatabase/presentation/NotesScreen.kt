@@ -39,7 +39,7 @@ import com.example.noteapproomdb.R
 fun NotesScreen (
     state: NoteState,
     navController: NavController,
-    onEvents: (NotesEvents) -> Unit
+    onEvent: (NotesEvent) -> Unit
 ) {
 
     Scaffold(
@@ -59,7 +59,7 @@ fun NotesScreen (
                     color = MaterialTheme.colorScheme.onPrimary
                 )
                 
-                IconButton(onClick = { onEvents(NotesEvents.SortNotes) }) {
+                IconButton(onClick = { onEvent(NotesEvent.SortNotes) }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Rounded.Sort,
                         contentDescription = "Sort Notes",
@@ -93,7 +93,7 @@ fun NotesScreen (
                 NoteItem(
                     state = state,
                     index = index,
-                    onEvents = onEvents
+                    onEvents = onEvent
                 )
                 }
             }
@@ -105,7 +105,7 @@ fun NotesScreen (
 fun NoteItem(
     state: NoteState,
     index: Int,
-    onEvents: (NotesEvents) -> Unit
+    onEvents: (NotesEvent) -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -134,7 +134,7 @@ fun NoteItem(
         }
         
         IconButton(
-            onClick = { onEvents(NotesEvents.DeleteNotes(state.notes[index]))
+            onClick = { onEvents(NotesEvent.DeleteNote(state.notes[index]))
             }
         ) {
            

@@ -1,4 +1,4 @@
-package com.example.noteapproomdb.roomdatabase.theme
+package com.example.noteapproomdb.ui.theme
 
 import android.app.Activity
 import android.os.Build

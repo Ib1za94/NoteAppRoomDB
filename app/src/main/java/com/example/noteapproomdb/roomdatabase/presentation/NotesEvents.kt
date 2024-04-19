@@ -1,15 +1,14 @@
 package com.example.noteapproomdb.roomdatabase.presentation
 
-import android.icu.text.CaseMap.Title
 import com.example.noteapproomdb.roomdatabase.data.Note
 
-sealed interface NotesEvents {
-    object SortNotes: NotesEvents
+sealed interface NotesEvent {
+    object SortNotes: NotesEvent
 
-    data class DeleteNotes(val note:Note): NotesEvents
+    data class DeleteNote(val note: Note): NotesEvent
 
     data class SaveNote(
         val title: String,
         val description: String
-    ): NotesEvents
+    ): NotesEvent
 }

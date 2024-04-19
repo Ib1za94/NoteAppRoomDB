@@ -15,38 +15,40 @@ import kotlinx.coroutines.launch
 
 class NotesViewModel(
     private val dao: NoteDao
-): ViewModel() {
+) : ViewModel() {
 
-    private val isSortedByDayAdded = MutableStateFlow(true)
+    private val isSortedByDateAdded = MutableStateFlow(true)
 
     private var notes =
-        isSortedByDayAdded.flatMapLatest { sort ->
+        isSortedByDateAdded.flatMapLatest { sort ->
             if (sort) {
-                dao.getNotesOrderByDateAdded()
+                dao.getNotesOrderdByDateAdded()
             } else {
-                dao.getNotesOrderByTitle()
-                }
-            }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+                dao.getNotesOrderdByTitle()
+            }
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     val _state = MutableStateFlow(NoteState())
     val state =
-        combine(_state, isSortedByDayAdded, notes) { state, isSortedByDayAdded, notes ->
+        combine(_state, isSortedByDateAdded, notes) { state, isSortedByDateAdded, notes ->
             state.copy(
                 notes = notes
             )
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), NoteState())
-    fun onEvent(event: NotesEvents){
-        when(event){
-            is NotesEvents.DeleteNotes -> {
+    fun onEvent(event: NotesEvent) {
+        when (event) {
+            is NotesEvent.DeleteNote -> {
                 viewModelScope.launch {
                     dao.deleteNote(event.note)
                 }
             }
-            is NotesEvents.SaveNote -> {
+
+            is NotesEvent.SaveNote -> {
                 val note = Note(
-                        title = state.value.title.value,
-                        description = state.value.description.value,
-                        dateAdded = System.currentTimeMillis())
+                    title = state.value.title.value,
+                    description = state.value.description.value,
+                    dateAdded = System.currentTimeMillis()
+                )
 
                 viewModelScope.launch {
                     dao.upsertNote(note)
@@ -58,11 +60,12 @@ class NotesViewModel(
                         description = mutableStateOf("")
                     )
                 }
-
             }
-            NotesEvents.SortNotes -> {
-                isSortedByDayAdded.value = !isSortedByDayAdded.value
+
+            NotesEvent.SortNotes -> {
+                isSortedByDateAdded.value = !isSortedByDateAdded.value
             }
         }
     }
+
 }

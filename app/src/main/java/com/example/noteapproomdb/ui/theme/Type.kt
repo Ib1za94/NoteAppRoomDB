@@ -1,4 +1,4 @@
-package com.example.noteapproomdb.roomdatabase.theme
+package com.example.noteapproomdb.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

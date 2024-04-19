@@ -25,13 +25,14 @@ import androidx.navigation.NavController
 fun AddNoteScreen(
     state: NoteState,
     navController: NavController,
-    onEvents: (NotesEvents) -> Unit
+    onEvent: (NotesEvent) -> Unit
 ) {
 
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                onEvents(NotesEvents.SaveNote(
+
+                onEvent(NotesEvent.SaveNote(
                     title = state.title.value,
                     description = state.description.value
                 ))
@@ -40,11 +41,12 @@ fun AddNoteScreen(
 
                 Icon(
                     imageVector = Icons.Rounded.Check,
-                    contentDescription = "Save note"
+                    contentDescription = "Save Note"
                 )
+
             }
         }
-    ) {paddingValues ->
+    ) { paddingValues ->
 
         Column(
             modifier = Modifier
@@ -61,14 +63,13 @@ fun AddNoteScreen(
                     state.title.value = it
                 },
                 textStyle = TextStyle(
-                   fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.SemiBold,
                     fontSize = 17.sp
                 ),
                 placeholder = {
                     Text(text = "Title")
                 }
             )
-
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -80,10 +81,10 @@ fun AddNoteScreen(
                 placeholder = {
                     Text(text = "Description")
                 }
+
             )
 
         }
 
     }
-
 }
