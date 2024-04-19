@@ -16,8 +16,9 @@
 <ul>
   <li>Programming Language: Kotlin</li>
   <li>Development Tools: Android Studio, Gradle</li>
-  <li>Networking Libraries: Volley</li>
-  <li>UI Components Libraries: RecyclerView, RecyclerView Adapter, TabLayout, AlertDialog, ViewPager, and others</li>
-  <li>Data Parsing Libraries: Gson</li>
-  <li>Functional Components: API Interaction, GPS Status Check, Server Data Retrieval, Location Permission Management</li>
+  <li>Database Libraries: Room</li>
+  <li>UI Components Libraries: Jetpack Compose</li>
+  <li>Asynchronous operations: Coroutines and Flow</li>
+  <li>Architectural pattern: MVVM (Model-View-ViewModel)</li>
+  <li>Clean Architecture: </li>
 </ul>
